@@ -17,6 +17,10 @@ DisplayCountryView.prototype.render = function (country) {
     const countryName = this.createElement('h1', country.name);
     this.container.appendChild(countryName);
 
+    const countryFlag = new Image(200, 100);
+    countryFlag.src = country.flag;
+    this.container.appendChild(countryFlag)
+
     const countryRegionHeader = this.createElement('h2', 'Region: ')
     this.container.appendChild(countryRegionHeader);
 

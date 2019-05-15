@@ -19,7 +19,6 @@ SelectView.prototype.bindEvents = function () {
 SelectView.prototype.populate = function (countries) {
     countries.forEach((country, index) => {
         const option = document.createElement('option');
-        console.log(country.name)
         option.textContent = country.name
         option.value = index;
         this.element.appendChild(option);

@@ -14,8 +14,23 @@ DisplayCountryView.prototype.bindEvents = function () {
 DisplayCountryView.prototype.render = function (country) {
     this.container.innerHTML = '';
 
-    const countryName = this.createElement('h2', country.name);
+    const countryName = this.createElement('h1', country.name);
     this.container.appendChild(countryName);
+
+    const countryRegionHeader = this.createElement('h2', 'Region: ')
+    this.container.appendChild(countryRegionHeader);
+
+    const countryRegion = this.createElement('h3', `${country.region}`)
+    this.container.appendChild(countryRegion)
+
+    const countryLanguage = this.createElement('h3', `Languages: `)
+    this.container.appendChild(countryLanguage);
+
+    const countryList = this.createLanguagesList(country.languages);
+    this.container.appendChild(countryList);
+
+
+ 
 }
 
 DisplayCountryView.prototype.createElement = function (elementType, text) {
@@ -24,5 +39,19 @@ DisplayCountryView.prototype.createElement = function (elementType, text) {
     return element;
 }
 
+DisplayCountryView.prototype.createLanguagesList = function (languages) {
+    const list = document.createElement('ul');
+
+    languages.forEach((language) => {
+        const listItem = document.createElement('li')
+        listItem.textContent = language.name;
+        list.appendChild(listItem);
+    })
+
+    return list;
+}
+
+
+ 
 
 module.exports = DisplayCountryView;

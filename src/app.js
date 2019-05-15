@@ -6,13 +6,15 @@ const Country = require('./models/countries.js')
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JavaScript Loaded');
 
+
   const country = new Country();
   country.getData();
 
-  const selectView = new SelectView();
+  const selectElement = document.querySelector('#countries');
+  const selectView = new SelectView(selectElement);
   selectView.bindEvents();
 
   const displayCountryView = new DisplayCountryView();
   displayCountryView.bindEvents();
-  
+
 });

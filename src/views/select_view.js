@@ -1,17 +1,25 @@
 const PubSub = require('../helpers/pub_sub.js')
 
-const SelectView = function (container) {
-    this.container = container;
+const SelectView = function (element) {
+    this.element = element;
 }
 
 SelectView.prototype.bindEvents = function () {
     PubSub.subscribe('Country:data_loaded', (event) => {
-        // this.render(event.detail)
-        console.log(event.detail)
+        this.populate(event.detail)
     })
 }
 
-// render funciton
+SelectView.prototype.populate = function (countries) {
+    countries.forEach((country, index) => {
+        const option = document.createElement('option');
+        console.log(country.name)
+        option.textContent = country.name
+        option.value = index;
+        this.element.appendChild(option);
+    })
+   
+}
 
 
 

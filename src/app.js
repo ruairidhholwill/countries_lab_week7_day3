@@ -14,7 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectView = new SelectView(selectElement);
   selectView.bindEvents();
 
-  const displayCountryView = new DisplayCountryView();
+  const countryContainer = document.querySelector('#country');
+  
+
+  const displayCountryView = new DisplayCountryView(countryContainer);
   displayCountryView.bindEvents();
 
 });
